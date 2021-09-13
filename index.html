@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="appstyle.css">
+    <style>
+      body{ -ms-overflow-style: none; } ::-webkit-scrollbar { display: none; } /*특정 부분 스크롤바 없애기*/ .box{ -ms-overflow-style: none; } 
+      .box::-webkit-scrollbar{ display:none; }
+      body {
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(0deg, #F2B4C1 0%, #998AC3 54%, #174B8C 100%);
+        margin: 0;
+        } 
+        .seek-bar{ 
+          position: absolute;
+          height: 10px;
+          left: 19.38%;
+          right: 19.37%;
+          top: 77.48%;
+          bottom: 22.52%;
+          
+          background-color: rgba(255, 255, 255, 0.5);
+            
+  }
+  .seek-bar span{
+   display: block;
+   width: 0;
+   height: 10px;
+   line-height: 10px;
+   text-align: right;
+   background-color: rgba(255, 255, 255, 1);
+  }
+  .seek-bar>.circle{
+    cursor:grab;
+    position:absolute;
+    left:0;
+    top:50%;
+    width: 16px;
+    height:16px;
+    transform:translate(-50%,-50%);
+    display:block;
+    border-radius: 100%;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 1);
+ 
+ }
+
+.title span{
+  display: block;
+  height: 6vw;
+  line-height: 6vw;
+  text-align: center;
+}
+    </style>
+  </head>
+  <body>
+  <img class="defort3" src="defort3.svg"/>
+  <button class="startbutton" id="a.play-video" onclick="start();" type="button" ><img class="startbuttonimg" id = "startbutton" src="start2.svg" alt=""> </button> 
+  <button class="next" type = "button"><img class="nextimg" src="unnext12.svg" art ="" > </button>
+  <button class="unnext" type ="button" onclick="starttime()"><img class="unnextimg" src="unnext2.svg" art=""> </button>
+  <button class="settingbutton2" type="button"><img class="settingbuttonimg2" src="setting2.svg" art=""> </button>
+  <button class="settingbutton1" type="button"><img class="settingbuttonimg3" src="stting1.svg"art=""> </button>
+  <div class="title" >
+    <span>8barrelay</span>
+    <span class="asd">-JUNNY-</span>
+  </div>
+  <div class="title2" style="width: 350px; height: 330px; overflow-y: scroll;">
+    <span style="text-align: center;"style="color: white;" style="font-size: 1vw;" ><br>[Verse 1]<br><br>
+      Won't you crawl up in this bed with me, (oh)<br>
+      Cozy up in these sheets, girl<br>
+      Tell 'em whatever you please (yeah, yeah)<br>
+      
+      <br>[Pre-Chorus]<br>
+      Look, ima keep this simple<br>
+      If you could take this invitation<br>
+      And just come over to mine<br>
+      I'll let you decide<br>
+      If you wanna, just say so<br>
+      
+      <br>[Chorus]<br>
+      Stay through the night, just me and you<br>
+      해뜰때까지만, baby<br>
+      곁에 있어줘 yeah (oh)<br>
+      I just wanna get close to you<br>
+      All I wanna do is take you to my place<br> </span></div>
+  <div>
+    <span class = "musictime" id="musictime">0:00</span>
+  </div>
+  <div>
+    <span class = "ollmusictime" id="ollmusictime">0:35</span>
+  </div>
+  <div class="seek-bar">
+    <span id = "span">0</span>
+    <div id="circle"class="circle" onmousedown="mousedown();" onmouseup="mouseup();" onclick="click();" >
+      <span id = 'span2'> </span>
+    </div>
+  </div>
+  <div id="player"></div>
+  <audio src = "bb.mp3" type="audio/mpeg">
+   
+  </audio>
+  
+
+  <script>
+  const myAudio = new Audio();
+  myAudio.src = "bb.mp3";
+  var time;
+  var alltime;
+  var tag = document.createElement('script');
+  var i = 0;
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+/*function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '0',
+    width: '0',
+    videoId: 'KdD8jvXBO0g',
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}*/
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+/*
+var done = false;
+
+
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING && !done) {s
+    done = true;
+  }
+}*/
+
+
+
+dragElement(document.getElementById("circle"));
+
+
+
+function stopVideo() {
+  myAudio.stop();
+}
+
+
+
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+function dragElement(elmnt) {
+  let clientX_gab = 0, clientX = 0;
+  elmnt.onmousedown = dragMouseDown;    //버튼을 누른 지점 
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    clientX = e.clientX;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+  
+  function elementDrag(e) {
+    i = 0;
+    myAudio.pause();
+    document.getElementById("startbutton").src = "start2.svg";
+    e = e || window.event;
+    e.preventDefault();
+    clientX_gab = e.clientX - clientX;
+    clientX = e.clientX;                // 커서의 위치 값
+    let leftVal = 0;
+    let parentElmnt = elmnt.parentNode;
+  if ((elmnt.offsetLeft + clientX_gab) < 0 || clientX < parentElmnt.offsetLeft) 
+    {
+    leftVal = 0;
+  } else if((elmnt.offsetLeft + clientX_gab) > parentElmnt.clientWidth ||clientX > (parentElmnt.offsetLeft+parentElmnt.clientWidth))
+    {
+    leftVal = parentElmnt.clientWidth;
+  } else {leftVal = (elmnt.offsetLeft + clientX_gab);
+  }
+
+  document.getElementById('span').style.width= Math.round((leftVal /parentElmnt.clientWidth)*100) + "%";
+  elmnt.querySelector('span').innerText = Math.round((leftVal /parentElmnt.clientWidth)*100);
+ 
+
+
+  elmnt.style.left = leftVal + "px";
+
+  }
+  }
+  function closeDragElement() {
+    i = 1;
+    document.getElementById("startbutton").src="startbutton.svg";
+    myAudio.play();
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+
+
+  
+  function start(){             //비디오 스탑, 시작
+
+if(i == 0){                               
+  myAudio.play();
+  document.getElementById("startbutton").src="startbutton.svg";
+  i = 1;
+}else if(i == 1){
+  myAudio.pause();
+  document.getElementById("startbutton").src = "start2.svg";
+  i = 0;
+}
+}
+
+var oa;
+
+
+
+setInterval(function(){     //시간 계산
+  if(i == 1){
+  alltime = myAudio.duration;
+  time = myAudio.currentTime;
+
+
+  document.getElementById('span').style.width=Math.round((time/alltime)*100)+"%";
+  document.getElementById('circle').style.left = Math.round((time/alltime)*100)+"%";      //시간에 따라 이동
+
+  document.getElementById('musictime').innerText = "0:" + fillZero(1,String(Math.round(time)));
+  }
+},10);
+
+function fillZero(width, str){
+  var i=str.length
+  var a=0;
+  if(str>=10){
+    a = "";
+  }
+str = a + str;
+return str; 
+}   //시간계산
+  </script>
+</body>
+
+
+ 
+  </script>
+</body>
+
+</html>

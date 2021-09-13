@@ -1,0 +1,196 @@
+.startbutton {
+  /* Component 1 */
+  position: fixed;
+  width: 8.5vw;
+  height: 4.2vh;
+  left: 48%;
+  top: 86%;
+  transform: translate(-42%, -14%);
+  padding:0;
+  border: 0;
+  outline: 0;
+  background-image: 0;
+  background-color: transparent;
+  }
+
+.startbuttonimg{
+  position: fixed;
+  width: 8.5vw;
+  height: 4.2vh;
+  padding: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+  .gradient{
+    background: linear-gradient( to bottom,blue 30%,  purple 50%, pink 20%);
+  }
+
+  
+.next {
+  position: fixed;
+  width: 6.3vw;
+  height: 2.8vh;
+  left: 24%;
+  top: 86%;
+  transform: translate(-76%, -14%);
+  padding:0;
+  border: 0;
+  outline: 0;
+  background-image: 0;
+  background-color: transparent;
+  }
+  .nextimg{
+  position: fixed;
+  width: 6.3vw;
+  height: 2.8vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  }
+  .unnext{
+  position: fixed;
+  width: 6.3vw;
+  height: 2.8vh;
+  left: 75%;
+  top: 86%;
+  transform: translate(-30%, -14%);
+  padding:0;
+  border: 0;
+  outline: 0;
+  background-image: 0;
+  background-color: transparent;
+  }
+  .unnextimg{
+    position: fixed;
+    width: 6.3vw;
+    height: 2.8vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.defort3{
+  position: fixed;
+  width: 36vw;
+  height: 25vh;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -70%);
+  padding:0;
+  border: 0;
+  outline: 0;
+  background-image: 0;
+  background-color: transparent;
+}
+
+.settingbutton1{
+  position: fixed;
+  width: 4.5vw;
+  height: 4.5vh;
+  left: 93%;
+  top: 8%;
+  transform: translate(-4%, -95%);
+  padding:0;
+  border: 0;
+  outline: 0;
+  background-image: 0;
+  background-color: transparent;
+}
+
+.settingbuttonimg2{
+  position: fixed;
+  width: 4.5vw;
+  height: 4.5vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.settingbutton2{
+  position: fixed;
+  width: 4.5vw;
+  height: 4.5vh;
+  left: 8%;
+  top: 8%;
+  transform: translate(-96%, -92%);
+  padding:0;
+  border: 0;
+  outline: 0;
+  background-image: 0;
+  background-color: transparent;
+}
+.settingbuttonimg3{
+  position: fixed;
+  width: 4.5vw;
+  height: 4.5vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title{
+  position: fixed;
+  height: 6vw;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -60%);
+  font-size: 6vw;
+  padding: 5px;
+  color: white;
+  word-break:break-all;
+  font-weight: 900;
+}
+.asd{
+  font-size: 4vw;
+}
+.title2{
+  position: fixed;
+  width: 350px;
+  height: 330px;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -40%);
+  border: solid white;
+  border-width: 2px 0px 2px 0px;
+   -ms-overflow-style: none;
+  text-align: center;
+  color: white;
+  font-size: 2.5vw;
+}
+.title2::-webkit-scrollbar{ display:none; }
+.ollmusictime{
+  
+  position: absolute;
+  left: 82.75%;
+  right: 11.9%;
+  top: 76.71%;
+  bottom: 21.9%;
+  
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 41px;
+  /* identical to box height */
+  
+  
+  color: #FFFFFF;
+}
+.musictime{
+  position: absolute;
+left: 10.47%;
+right: 84.18%;
+top: 76.71%;
+bottom: 21.9%;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 35px;
+line-height: 41px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
